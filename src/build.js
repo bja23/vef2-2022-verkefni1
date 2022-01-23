@@ -52,7 +52,7 @@ async function main() {
         const nnn = calculated.name;
         const filename = join(OUTPUT_DIR, `${nnn}.html`);
 
-        await writeFile(filename, rData);
+        await writeFile(filename, rData, { flag: 'w+' });
 
 
     }

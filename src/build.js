@@ -6,12 +6,27 @@ import { marked } from 'marked';
 
 import { makeHTML, dataTemplate } from './make-html.js';
 import { parse } from './parser.js';
+import { mkdir } from 'fs';
 
 const DATA_DIR = './data';
 const OUTPUT_DIR = './dist';
 
+async function direxists(dir) {
+    try {
+        const info = await stat(dir);
+        return info.isDirectory;
+    } catch (e) {
+        return false;
+    }
+}
+
+
 async function main() {
     const files = await readdir(DATA_DIR);
+
+    if (!(await direxists(OUTPUT_DIR))) {
+        await mkdir(OUTPUT_DIR);
+    }
 
     for (const file of files){
         const path = join(DATA_DIR, file);

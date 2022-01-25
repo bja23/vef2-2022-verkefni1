@@ -1,12 +1,12 @@
 import { join } from 'path';
-import { writeFile, readFile, readdir, stat } from 'fs/promises';
+import { writeFile, mkdir, readFile, readdir, stat } from 'fs/promises';
 
 import graymatter from 'gray-matter';
 import { marked } from 'marked';
 
-import { makeHTML, dataTemplate } from './make-html.js';
+import { makeHTML, dataTemplate, makeIndex } from './make-html.js';
 import { parse } from './parser.js';
-import { mkdir } from 'fs';
+
 
 const DATA_DIR = './data';
 const OUTPUT_DIR = './dist';
@@ -28,6 +28,8 @@ async function main() {
         await mkdir(OUTPUT_DIR);
     }
 
+    const myData = [];
+
     for (const file of files){
         const path = join(DATA_DIR, file);
         const info = await stat(path);
@@ -47,15 +49,20 @@ async function main() {
         const html = makeHTML(calculated);
         console.log('html :>> ', html);
 
-        const rData = dataTemplate(calculated.name, html);
+        const rData = dataTemplate(calculated.name, html, true);
 
         const nnn = calculated.name;
         const filename = join(OUTPUT_DIR, `${nnn}.html`);
 
         await writeFile(filename, rData, { flag: 'w+' });
 
+        myData.push(calculated.name);
+
 
     }
+
+    const index = dataTemplate('gögn', makeIndex(myData));
+    await writeFile(join(OUTPUT_DIR, 'index.html'), index, { flag: 'w+' });
 
     /*console.log('files :>> ', files);*/
 }

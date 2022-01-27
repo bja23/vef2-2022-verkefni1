@@ -1,5 +1,7 @@
 ul {
+    margin: auto;
     display: flex;
+    flex-wrap: wrap;
     font-size: 2rem;
     list-style: none;
 }

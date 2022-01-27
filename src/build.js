@@ -63,7 +63,7 @@ async function main() {
 
     }
 
-    const index = dataTemplate('gagnasafn', makeIndex(myData));
+    const index = dataTemplate('gagnavinnsla', makeIndex(myData));
     await writeFile(join(OUTPUT_DIR, 'index.html'), index, { flag: 'w+' });
 
     /*console.log('files :>> ', files);*/

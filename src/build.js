@@ -4,7 +4,7 @@ import { writeFile, mkdir, readFile, readdir, stat } from 'fs/promises';
 import graymatter from 'gray-matter';
 import { marked } from 'marked';
 
-import { makeHTML, dataTemplate, makeIndex } from './make-html.js';
+import { makeHTML, dataTemplate, makeIndex, makeNoDataHtml } from './make-html.js';
 import { parse } from './parser.js';
 
 
@@ -48,8 +48,7 @@ async function main() {
         const calculated = parse(file, str);
         console.log('parsed :>> ', calculated);
 
-        const html = makeHTML(calculated);
-        console.log('html :>> ', html);
+        const html = makeHTML(calculated, calculated.hasData);
 
         const rData = dataTemplate(calculated.name, html, true);
 

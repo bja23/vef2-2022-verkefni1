@@ -12,6 +12,10 @@ ul li {
     margin: 1rem;
 }
 
+.DataList {
+    font-size: 2rem;
+}
+
 section {
     margin: 0 auto;
     max-width: 1000px;

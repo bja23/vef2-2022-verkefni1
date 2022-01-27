@@ -8,6 +8,8 @@ import { makeHTML, dataTemplate, makeIndex } from './make-html.js';
 import { parse } from './parser.js';
 
 
+
+
 const DATA_DIR = './data';
 const OUTPUT_DIR = './dist';
 
@@ -61,7 +63,7 @@ async function main() {
 
     }
 
-    const index = dataTemplate('gögn', makeIndex(myData));
+    const index = dataTemplate('gagnasafn', makeIndex(myData));
     await writeFile(join(OUTPUT_DIR, 'index.html'), index, { flag: 'w+' });
 
     /*console.log('files :>> ', files);*/

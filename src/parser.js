@@ -27,7 +27,7 @@ export function parse(name, input){
     Miðgildi (median)
     Minnsta gildi (min)
     Staðalfrávik (standard deviation)
-    Summu (sum)
+    *Summu (sum)
     Svið (range)
     */
 

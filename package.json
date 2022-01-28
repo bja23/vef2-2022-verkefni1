@@ -30,6 +30,7 @@
     "gray-matter": "^4.0.3",
     "grey-matter": "^0.0.0",
     "marked": "^4.0.10",
+    "mnjs": "^3.2.3",
     "remove-whitespace": "^1.1.0",
     "stats-lite": "^2.2.0"
   }

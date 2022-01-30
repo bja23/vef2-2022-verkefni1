@@ -1,3 +1,4 @@
+/* eslint-disable quotes */
 import { describe, expect, it } from "@jest/globals";
 import { calc } from "../calc.js";
 
@@ -6,13 +7,14 @@ describe("calc test with numbers", () => {
     const name = "1.txt";
 
     const data = {
+      // eslint-disable-next-line object-shorthand
       name: name,
       hasData: true,
       data: [904, 688, 607, 299],
       total: 4,
     };
 
-    let calc2 = calc(name, data);
+    const calc2 = calc(name, data);
 
     expect(calc2).toEqual({
       name: "1.txt",
@@ -35,13 +37,14 @@ describe("calc test with no numbers", () => {
     const name = "1.txt";
 
     const data = {
+      // eslint-disable-next-line object-shorthand
       name: name,
       hasData: false,
       data: 0,
       total: 0,
     };
 
-    let calc2 = calc(name, data);
+    const calc2 = calc(name, data);
 
     expect(calc2).toEqual({
       name: "1.txt",

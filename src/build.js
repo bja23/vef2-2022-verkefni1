@@ -1,10 +1,11 @@
 /* eslint-disable no-await-in-loop */
 /* eslint-disable quotes */
-import { mkdir, readdir, readFile, stat, writeFile } from "fs/promises";
+import { mkdir, readFile, stat, writeFile } from "fs/promises";
 import { join } from "path";
 import { calc } from "./calc.js";
 import { dataTemplate, makeHTML, makeIndex } from "./make-html.js";
 import { parse } from "./parser.js";
+import { read } from "./read.js";
 
 const DATA_DIR = "./data";
 const OUTPUT_DIR = "./dist";
@@ -19,7 +20,7 @@ async function direxists(dir) {
 }
 
 async function main() {
-  const files = await readdir(DATA_DIR);
+  const files = await read(DATA_DIR);
 
   if (!(await direxists(OUTPUT_DIR))) {
     await mkdir(OUTPUT_DIR);

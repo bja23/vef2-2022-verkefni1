@@ -25,11 +25,7 @@ export function makeHTML(entry, showData) {
 }
 
 export function makeNoDataHtml() {
-  const template = `
-        <section>
-            <p>Þetta gangasett hefur engar eða aðeins ólöglegar niðurstöður
-         </section>
-    `;
+  const template = `<section><p>Þetta gangasett hefur engar eða aðeins ólöglegar niðurstöður </section>`;
   return template;
 }
 

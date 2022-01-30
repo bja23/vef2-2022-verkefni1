@@ -1,68 +1,67 @@
-/*var stats = require("stats-lite")*/
-import awesomeStatistics from 'awesome-statistics';
-import mnjs from 'mnjs';
+/* eslint-disable object-shorthand */
+import awesomeStatistics from "awesome-statistics";
+import mnjs from "mnjs";
 
-export function parse(name, input){
-    
-    const myArray = input.split('\n');
-    let numbers = [];
-    let total = 0;
+export function parse(name, input) {
+  const myArray = input.split("\n");
+  const numbers = [];
+  let total = 0;
 
-    var i = 0;
+  let i = 0;
 
-    while(i < myArray.length){
-        myArray[i] = myArray[i].replace('.','');
-        myArray[i] = myArray[i].replace(',','.');
-        if(isNaN(myArray[i])){
-            i++;
-            continue;
-        }
-        if(myArray[i]  === ''){
-            i++;
-            continue;
-        }
-        total = numbers.push(parseFloat(myArray[i]));
-
-        i++;
+  while (i < myArray.length) {
+    myArray[i] = myArray[i].replace(".", "");
+    myArray[i] = myArray[i].replace(",", ".");
+    if (isNaN(myArray[i])) {
+      // eslint-disable-line no-restricted-globals
+      i++; // eslint-disable-line no-plusplus
+      continue; // eslint-disable-line no-continue
     }
+    if (myArray[i] === "") {
+      i++; // eslint-disable-line no-plusplus
+      continue; // eslint-disable-line no-continue
+    }
+    total = numbers.push(parseFloat(myArray[i]));
 
-   let isData = true;
-   if(total == 0){
-       isData = false;
-   }
+    i++; // eslint-disable-line no-plusplus
+  }
 
-   const newData = {
-       name: name,
-       hasData: isData
-   };
+  let isData = true;
+  if (total === 0) {
+    isData = false;
+  }
 
+  const newData = {
+    name: name,
+    hasData: isData,
+  };
 
-   if(total){
-    let variance = awesomeStatistics.variance(numbers);
-    let max = mnjs.max(numbers);
-    let median = awesomeStatistics.median(numbers);
-    let min = mnjs.min(numbers);
-    let sd = awesomeStatistics.standardDeviation(numbers);
-    let sum = awesomeStatistics.sum(numbers);
-    let range = awesomeStatistics.range(numbers);
-    let mean = sum/total;
+  if (total) {
+    const variance = awesomeStatistics.variance(numbers);
+    const max = mnjs.max(numbers);
+    const median = awesomeStatistics.median(numbers);
+    const min = mnjs.min(numbers);
+    const sd = awesomeStatistics.standardDeviation(numbers);
+    const sum = awesomeStatistics.sum(numbers);
+    const range = awesomeStatistics.range(numbers);
+    const mean = sum / total;
 
     const data = {
-        name: name,
-        variance: variance,
-        max: max,
-        median: median,
-        min: min,
-        sd: sd,
-        sum: sum,
-        range: range,
-        mean: mean,
-        hasData: isData,
-        data: numbers
+      name: name,
+      variance: variance,
+      max: max,
+      median: median,
+      min: min,
+      sd: sd,
+      sum: sum,
+      range: range,
+      mean: mean,
+      hasData: isData,
+      data: numbers,
     };
 
     return data;
-   }
+  }
 
-    return newData;
+  return newData;
 }

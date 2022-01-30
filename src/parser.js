@@ -1,4 +1,5 @@
 /* eslint-disable object-shorthand */
+/* eslint-disable quotes */
 import awesomeStatistics from "awesome-statistics";
 import mnjs from "mnjs";
 
@@ -12,8 +13,8 @@ export function parse(name, input) {
   while (i < myArray.length) {
     myArray[i] = myArray[i].replace(".", "");
     myArray[i] = myArray[i].replace(",", ".");
+    // eslint-disable-next-line no-restricted-globals
     if (isNaN(myArray[i])) {
-      // eslint-disable-line no-restricted-globals
       i++; // eslint-disable-line no-plusplus
       continue; // eslint-disable-line no-continue
     }

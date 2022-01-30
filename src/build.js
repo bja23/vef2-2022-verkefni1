@@ -1,8 +1,8 @@
 /* eslint-disable no-await-in-loop */
+/* eslint-disable quotes */
+import { mkdir, readdir, readFile, stat, writeFile } from "fs/promises";
 import { join } from "path";
-import { writeFile, mkdir, readFile, readdir, stat } from "fs/promises";
-
-import { makeHTML, dataTemplate, makeIndex } from "./make-html.js";
+import { dataTemplate, makeHTML, makeIndex } from "./make-html.js";
 import { parse } from "./parser.js";
 
 const DATA_DIR = "./data";

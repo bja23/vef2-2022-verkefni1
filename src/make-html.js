@@ -1,3 +1,4 @@
+/* eslint-disable quotes */
 export function makeHTML(entry, showData) {
   const back = showData
     ? `

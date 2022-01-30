@@ -826,7 +826,7 @@ asynckit@^0.4.0:
 
 awesome-statistics@^0.2.0:
   version "0.2.0"
-  resolved "https://registry.npmjs.org/awesome-statistics/-/awesome-statistics-0.2.0.tgz"
+  resolved "https://registry.yarnpkg.com/awesome-statistics/-/awesome-statistics-0.2.0.tgz#6eabd77295c3f22122b043730e19c2ff3cecc9a1"
   integrity sha512-gDIhNDi/rSaZNtvpMacugL1y3Xj0d3SmYXrTHw2TCScEDWzPBaH36BDldGFsH6cMRDsYWi2k0/z7Z30q7YAp0A==
 
 babel-jest@^27.4.6:

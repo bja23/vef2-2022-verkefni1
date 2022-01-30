@@ -2,6 +2,7 @@
 /* eslint-disable quotes */
 import { mkdir, readdir, readFile, stat, writeFile } from "fs/promises";
 import { join } from "path";
+import { calc } from "./calc.js";
 import { dataTemplate, makeHTML, makeIndex } from "./make-html.js";
 import { parse } from "./parser.js";
 
@@ -37,7 +38,9 @@ async function main() {
     const data = await readFile(path);
     const str = await data.toString("utf-8");
 
-    const calculated = parse(file, str);
+    const parsed = parse(file, str);
+
+    const calculated = calc(file, parsed);
 
     const html = makeHTML(calculated, calculated.hasData);
 

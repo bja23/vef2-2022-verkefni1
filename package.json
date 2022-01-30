@@ -6,7 +6,7 @@
   "main": "index.js",
   "scripts": {
     "build": "node ./src/build.js && cpy public/*.css dist",
-    "test": "NODE_OPTIONS='--experimental-vm-modules' jest ./test/*.js",
+    "test": "NODE_OPTIONS='--experimental-vm-modules' jest ./*test.js",
     "prettier": "prettier --write .",
     "lint": "concurrently npm:lint:*",
     "lint:eslint": "eslint ./src/**/*.js",

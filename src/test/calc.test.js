@@ -18,14 +18,14 @@ describe("calc test with numbers", () => {
 
     expect(calc2).toEqual({
       name: "1.txt",
-      variance: 47102.25,
+      variance: 47102,
       max: 904,
-      median: 647.5,
+      median: 648,
       min: 299,
-      sd: 217.0305278065738,
+      sd: 217,
       sum: 2498,
       range: 605,
-      mean: 624.5,
+      mean: 625,
       hasData: true,
       data: [299, 607, 688, 904],
     });

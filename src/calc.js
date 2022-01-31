@@ -13,15 +13,15 @@ export function calc(name, parsedData) {
     const mean = sum / parsedData.total;
 
     const data = {
-      name: name,
-      variance: variance,
-      max: max,
-      median: median,
-      min: min,
-      sd: sd,
-      sum: sum,
-      range: range,
-      mean: mean,
+      name: name, // eslint-disable-line object-shorthand
+      variance: Math.round(variance),
+      max: Math.round(max),
+      median: Math.round(median),
+      min: min, // eslint-disable-line object-shorthand
+      sd: Math.round(sd),
+      sum: sum, // eslint-disable-line object-shorthand
+      range: Math.round(range),
+      mean: Math.round(mean), // eslint-disable-line object-shorthand
       hasData: parsedData.hasData,
       data: parsedData.data,
     };
@@ -30,7 +30,7 @@ export function calc(name, parsedData) {
   }
 
   const dData = {
-    name: name,
+    name,
     hasData: parsedData.hasData,
   };
 

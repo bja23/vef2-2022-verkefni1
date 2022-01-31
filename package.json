@@ -31,6 +31,7 @@
   "dependencies": {
     "array-helpers": "^4.0.1",
     "awesome-statistics": "^0.2.0",
+    "browser-sync": "^2.27.7",
     "condense-whitespace": "^3.0.0",
     "cpy-cli": "^1.0.1",
     "gray-matter": "^4.0.3",

@@ -2,6 +2,20 @@
 export function makeHTML(entry, showData) {
   const back = showData
     ? `
+  <li><p>Variance: ${entry.variance}</p></li>
+  <li><p>Max: ${entry.max}</p></li>
+  <li><p>Median: ${entry.median}</p></li>
+  <li><p>Min: ${entry.min}</p></li>
+  <li> <p>Sd: ${entry.sd}</p></li>
+  <li> <p>Sum: ${entry.sum}</p></li>
+  <li><p>Range: ${entry.range}</p></li>
+  <li><p>Mean: ${entry.mean}</p></li>
+  <li> <div class='DataList'>Legal data: ${entry.data} </div></li>
+  `
+    : ` <p>Þetta gagnasafn hefur engar niðurstöður/aðeins ólögleg gögn</p>
+  `;
+  /*
+    ? `
         <p>Variance: ${entry.variance}</p>
         <p>Max: ${entry.max}</p>
         <p>Median: ${entry.median}</p>
@@ -15,12 +29,15 @@ export function makeHTML(entry, showData) {
     : ` <p>Þetta gagnasafn hefur engar niðurstöður/aðeins ólögleg gögn</p>
         `;
 
+
   const template = `
         <section>
             ${back}
         </section>
         `;
 
+        */
+  const template = `<section><ul>${back}</ul></section>`;
   return template;
 }
 
@@ -39,7 +56,9 @@ export function makeIndex(entries) {
 }
 
 export function dataTemplate(name, rData, showBack = false) {
-  const back = showBack ? `<p><a href='/'>Til baka</a></>` : ""; // eslint-disable-line quotes
+  const back = showBack
+    ? `<div class='BackButton'><p><a href='/'>Til baka</a></></div>`
+    : ""; // eslint-disable-line quotes
   return `
     <!doctype html>
     <html>
@@ -48,8 +67,8 @@ export function dataTemplate(name, rData, showBack = false) {
             <link rel='stylesheet' href='styles.css'>
         </head>
         <body>
-            ${rData}
             ${back}
+            ${rData}
         </body>
     </html>
 `;
